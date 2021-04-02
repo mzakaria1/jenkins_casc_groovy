@@ -1,17 +1,17 @@
 import java.util.Arrays
 import java.util.logging.Logger
+import jenkins.model.*
+import com.cloudbees.jenkins.plugins.amazonecs.*
+import com.cloudbees.hudson.plugins.folder.*
 Logger logger = Logger.getLogger("ecs-cluster")
 
 logger.info("Loading Jenkins")
-import jenkins.model.*
 instance = Jenkins.getInstance()
 
-import com.cloudbees.jenkins.plugins.amazonecs.*
 ECSCloud.metaClass.properties.each {println it.name+":\t"+it.type }
 
-import com.cloudbees.hudson.plugins.folder.*
 
-import com.cloudbees.jenkins.plugins.amazonecs.ECSTaskTemplate.MountPointEntry
+// import com.cloudbees.jenkins.plugins.amazonecs.ECSTaskTemplate.MountPointEntry
 def mounts = Arrays.asList(
   new MountPointEntry(
     name="jenkins",
@@ -21,7 +21,7 @@ def mounts = Arrays.asList(
 )
 
 logger.info("Creating template")
-import com.cloudbees.jenkins.plugins.amazonecs.ECSTaskTemplate
+// import com.cloudbees.jenkins.plugins.amazonecs.ECSTaskTemplate
 def ecsTemplate = new ECSTaskTemplate(
   templateName="jnlp-slave",
   label="ecs-with-docker",
@@ -37,7 +37,7 @@ def ecsTemplate = new ECSTaskTemplate(
 )
 
 logger.info("Retrieving ecs cloud config by descriptor")
-import com.cloudbees.jenkins.plugins.amazonecs.ECSCloud
+// import com.cloudbees.jenkins.plugins.amazonecs.ECSCloud
 ecsCloud = new ECSCloud(
   name="name",
   templates=Arrays.asList(ecsTemplate),
