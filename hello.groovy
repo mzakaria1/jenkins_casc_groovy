@@ -2,9 +2,6 @@ import jenkins.model.*
 import hudson.security.*
 
 println "--> creating admin user"
-def signature = 'new groovy.json.JsonSlurperClassic'
-org.jenkinsci.plugins.scriptsecurity.scripts.ScriptApproval.get().approveSignature(signature)
-
 def adminUsername = "zakaria1"
 def adminPassword = "12345"
 assert adminPassword != null : "No ADMIN_USERNAME env var provided, but required"
