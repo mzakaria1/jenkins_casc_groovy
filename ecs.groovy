@@ -6,6 +6,11 @@ logger.info("Loading Jenkins")
 import jenkins.model.*
 instance = Jenkins.getInstance()
 
+import com.cloudbees.jenkins.plugins.amazonecs.*
+ECSCloud.metaClass.properties.each {println it.name+":\t"+it.type }
+
+import com.cloudbees.hudson.plugins.folder.*
+
 import com.cloudbees.jenkins.plugins.amazonecs.ECSTaskTemplate.MountPointEntry
 def mounts = Arrays.asList(
   new MountPointEntry(
