@@ -7,8 +7,8 @@ import hudson.security.*
 
 println "--> creating admin user"
 
-def adminUsername = System.getenv("jenkins_user")
-def adminPassword = System.getenv("jenkins_pass")
+def adminUsername = "zakaria1"
+def adminPassword = "12345"
 assert adminPassword != null : "No ADMIN_USERNAME env var provided, but required"
 assert adminPassword != null : "No ADMIN_PASSWORD env var provided, but required"
 
